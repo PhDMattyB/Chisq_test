@@ -10,8 +10,7 @@
 ## Load the data manipulation work horse
 library(tidyverse)
 library(corrplot)
-
-## Load other packages 
+# library(ggcorrplot)
 
 
 ## Read in the data
@@ -22,10 +21,10 @@ df = matrix(c(77, 248, 102, 248,
                     ncol = 2, 
                     byrow = T)
 colnames(df) = c('Unique', 'Shared')
-rownames(df) = c('GT1', 'GT2', 
-                         'ST1', 'ST2', 
-                         'T1T1', 'T1T2', 
-                         'T2T1', 'T2T2')
+rownames(df) = c('Galtabol Morphology', 'Galtabol Resource use', 
+                  'Svinavatn Morphology', 'Svinavatn Resource use', 
+                         'Thingvallavatn1 Morphology', 'Thingvallavatn1 Resource use', 
+                         'Thingvallavatn2 Morphology', 'Thingvallavatn2 Resource use')
 
 df = as.table(df)
 
@@ -35,5 +34,12 @@ test = chisq.test(df)
 # test$expected
 
 
-corrplot(test$residuals, 
-         is.cor = FALSE)
+cors = corrplot(test$residuals,
+         method = 'color',
+         tl.col = 'black',
+         tl.offset = 1,
+         # tl.pos = 'n',
+         # tl.srt = 0,
+         # type = 'upper',
+         is.cor = FALSE, 
+         t1.col = 'black')
