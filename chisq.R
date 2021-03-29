@@ -31,11 +31,9 @@ df = as.table(df)
 
 test = chisq.test(df)
 
-test$observed
-test$expected
-
-library(corrplot)
+# test$observed
+# test$expected
 
 
-corrplot(combo_test$residuals, 
+corrplot(test$residuals, 
          is.cor = FALSE)
