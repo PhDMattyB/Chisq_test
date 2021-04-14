@@ -28,7 +28,7 @@ rownames(df) = c('Galtabol Morphology', 'Galtabol Resource use',
 
 df = as.table(df)
 
-test = chisq.test(df)
+%>% %>% %>% %>% %>% test = chisq.test(df)
 
 # test$observed
 # test$expected
