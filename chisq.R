@@ -14,10 +14,10 @@ library(corrplot)
 
 
 ## Read in the data
-df = matrix(c(77, 248, 102, 248,
-                      43, 251, 35, 251,
-                      29, 235, 33, 235,
-                      38, 222, 37, 222), 
+df = matrix(c(77, 124, 102, 124,
+                      43, 125.5, 35, 125.5,
+                      29, 117.5, 33, 117.5,
+                      38, 111, 37, 111), 
                     ncol = 2, 
                     byrow = T)
 colnames(df) = c('Unique', 'Shared')
