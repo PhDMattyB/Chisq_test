@@ -15,8 +15,8 @@ library(corrplot)
 
 ## Read in the data
 df = matrix(c(77, 124, 102, 124,
-                      43, 125.5, 35, 125.5,
-                      29, 117.5, 33, 117.5,
+                      43, 125, 35, 126,
+                      29, 117, 33, 118,
                       38, 111, 37, 111), 
                     ncol = 2, 
                     byrow = T)
@@ -28,10 +28,18 @@ rownames(df) = c('Galtabol Morphology', 'Galtabol Resource use',
 
 df = as.table(df)
 
+write.table(df, 
+            'Chisquare_data.txt')
+
 test = chisq.test(df)
 
-test$observed
-test$expected
+obs = test$observed
+write.table(obs, 
+            'Chisquare_observed.txt')
+
+expect = test$expected
+write.table(expect, 
+            'Chisquare_expected.txt')
 
 
 cors = corrplot(test$residuals,
@@ -41,5 +49,5 @@ cors = corrplot(test$residuals,
          # tl.pos = 'n',
          # tl.srt = 0,
          # type = 'upper',
-         is.cor = FALSE, 
+         is.cor = FALSE,
          t1.col = 'black')
